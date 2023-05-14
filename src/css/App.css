@@ -15,6 +15,13 @@
     justify-content: center;
 }
 
+.offer-cards-container {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    justify-content: center;
+}
+
 @media (max-width : 400px) {
     .temp {
         grid-template-columns: repeat(1, 1fr);

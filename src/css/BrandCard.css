@@ -1,10 +1,12 @@
 .brand-card {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     background-color: #F5F6F6;
     padding: 1.2rem;
     border-radius: 10px;
+    border: 1px solid transparent;
+    transition-duration: 200ms;
 }
 
 .brand-img-container {
@@ -19,6 +21,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    transition-duration: 200ms;
 }
 
 .brand-container {
@@ -38,4 +41,12 @@
     font-size: .8rem;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
+}
+
+.brand-card:hover {
+    border: 1px solid rgb(0, 61, 41);
+}
+
+.brand-img-container img:hover {
+    scale: 1.15;
 }

@@ -5,6 +5,7 @@ import Topcategory from "./components/TopCategory/Topcategory"
 import Carousel from './components/Carousel/Carousel'
 import './css/App.css'
 import BrandCard from "./components/BrandCard"
+import OfferCard from "./components/OfferCard"
 function App() {
   return (
     <>
@@ -23,6 +24,16 @@ function App() {
           <BrandCard />
           <BrandCard />
           <BrandCard />
+        </div>
+      </div>
+      <div className="main-wrap-container">
+        <div className="main-wrap-heading">Choose By Brand</div>
+        <div className="offer-cards-container">
+          <OfferCard />
+          <OfferCard />
+          <OfferCard />
+          <OfferCard />
+
         </div>
       </div>
       <div className="main-wrap-container">

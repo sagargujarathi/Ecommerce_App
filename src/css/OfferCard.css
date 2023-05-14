@@ -1,0 +1,43 @@
+.offer-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    aspect-ratio: 1/1.4;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.offer-card-top {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #f9dcdc;
+    font-family: 'Inter', sans-serif;
+    padding: 2rem;
+}
+
+.offer-card-bottom img {
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.save-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.offer-card-price {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #961f1f;
+}
+
+.offer-card-quote {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.6);
+}

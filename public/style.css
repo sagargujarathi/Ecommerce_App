@@ -6,6 +6,7 @@
     box-sizing: border-box;
     outline: none;
     -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
 }
 
 a {
