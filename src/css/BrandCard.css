@@ -1,0 +1,41 @@
+.brand-card {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #F5F6F6;
+    padding: 1.2rem;
+    border-radius: 10px;
+}
+
+.brand-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+}
+
+.brand-img-container img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.brand-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: .5rem;
+}
+
+.brand-heading {
+    font-size: 1.2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+.brand-quote {
+    font-size: .8rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}

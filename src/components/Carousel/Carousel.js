@@ -8,7 +8,7 @@ function Carousel(props) {
     function handleResize() {
         const element = scrollContainerRef.current
         const width = element.offsetWidth
-        for (let i = 1; i < 10; i++) {
+        for (let i = 30; i >= 1; i--) {
             let size = (width - ((i - 1) * (16 * 1.5))) / i
             if (size < 400 && size > 250) {
                 scrollContainerRef.current.style.gridTemplateColumns = `${size}px`
@@ -18,58 +18,46 @@ function Carousel(props) {
         }
     }
     function handleMouseDown(e) {
-        if (e.target === scrollContainerRef.current || e.target.offsetParent.parentNode == scrollContainerRef.current) {
-            if (e.stopPropagation) e.stopPropagation();
-            if (e.preventDefault) e.preventDefault();
-            e.cancelBubble = true;
-            e.returnValue = false;
-            mouseDownPosition = e.pageX - scrollContainerRef.current.offsetLeft
-            mouseDown = true
-            scrollLeft = scrollContainerRef.current.scrollLeft
-        }
+        if (e.stopPropagation) e.stopPropagation();
+        if (e.preventDefault) e.preventDefault();
+        e.cancelBubble = true;
+        e.returnValue = false;
+        mouseDownPosition = e.pageX - scrollContainerRef.current.offsetLeft
+        mouseDown = true
+        scrollLeft = scrollContainerRef.current.scrollLeft
     }
     function handleMouseUp(e) {
-        if (mouseDown) {
-            console.log('mew')
-        }
         mouseDown = false
     }
     function handleMouseMove(e) {
         e.preventDefault()
-        if (!mouseDown) {
+        if (mouseDown == false) {
             return
         }
         const x = e.pageX - scrollContainerRef.current.offsetLeft;
         const scroll = x - mouseDownPosition;
         scrollContainerRef.current.scrollLeft = scrollLeft - scroll;
     }
-    useEffect(() => {
-        handleResize()
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
-    useEffect(() => {
-        window.addEventListener('mousedown', handleMouseDown)
-        return () => window.removeEventListener('mousedown', handleMouseDown)
-    }, [])
-    useEffect(() => {
-        window.addEventListener('mouseup', handleMouseUp)
-        return () => window.removeEventListener('mouseup', handleMouseUp)
-    }, [])
-    useEffect(() => {
-        window.addEventListener('mousemove', handleMouseMove)
-        return () => window.removeEventListener('mousemove', handleMouseMove)
-    }, [])
+    function handleScroll(e) {
+        setProgress(Math.ceil((scrollContainerRef.current.scrollLeft / (scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth)
+        ) * 100))
+    }
     useEffect(() => {
         const element = scrollContainerRef.current
-        element.addEventListener('scroll', () => {
-            setProgress(Math.ceil((scrollContainerRef.current.scrollLeft / scrollContainerRef.current.scrollLeftMax) * 100))
-        })
-        return () => element.removeEventListener('scroll', () => {
-            setTimeout(() => {
-                setProgress(Math.ceil((scrollContainerRef.current.scrollLeft / scrollContainerRef.current.scrollLeftMax) * 100))
-            }, 1000)
-        })
+        handleResize()
+        window.addEventListener('resize', handleResize)
+        element.addEventListener('mousedown', handleMouseDown)
+        element.addEventListener('mouseup', handleMouseUp)
+        element.addEventListener('mousemove', handleMouseMove)
+        element.addEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+            element.removeEventListener('mousedown', handleMouseDown)
+            element.removeEventListener('mouseup', handleMouseUp)
+            element.removeEventListener('mousemove', handleMouseMove)
+            element.removeEventListener('scroll', handleScroll)
+        }
     }, [])
     return (
         <>

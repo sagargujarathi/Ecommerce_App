@@ -4,6 +4,7 @@ import StoreItem from "./components/StoreItem"
 import Topcategory from "./components/TopCategory/Topcategory"
 import Carousel from './components/Carousel/Carousel'
 import './css/App.css'
+import BrandCard from "./components/BrandCard"
 function App() {
   return (
     <>
@@ -11,6 +12,19 @@ function App() {
       <Heropage />
       <Topcategory />
       <Carousel heading='Todays Best Deals for you!' />
+      <div className="main-wrap-container">
+        <div className="main-wrap-heading">Shop Our Top Categories</div>
+        <div className="brand-card-wrapper">
+          <BrandCard />
+          <BrandCard />
+          <BrandCard />
+          <BrandCard />
+          <BrandCard />
+          <BrandCard />
+          <BrandCard />
+          <BrandCard />
+        </div>
+      </div>
       <div className="main-wrap-container">
         <div className="main-wrap-heading">Todays Best Deals For You!</div>
         <div className="temp">
@@ -37,7 +51,6 @@ function App() {
           <StoreItem />
         </div>
       </div>
-
     </>
   )
 }
