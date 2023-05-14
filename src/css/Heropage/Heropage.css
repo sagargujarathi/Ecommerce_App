@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+.hero-page {
+    background-image: url(../../images/banner-background.png);
+    background-position: center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: calc(100vh - 5rem);
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-stage-background {
+    position: absolute;
+    bottom: 3rem;
+    right: 0;
+}
+
+.banner {
+    position: absolute;
+}
+
+.banner-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 0%;
+    transform: translate(15%, -50%);
+    z-index: 10;
+    justify-content: space-evenly;
+    gap: 2rem;
+}
+
+.h1 {
+    font-size: 3.8rem;
+    font-family: sans-serif;
+    letter-spacing: 0.50px;
+    font-family: 'Poppins', sans-serif;
+    color: #003D29;
+    line-height: 5rem;
+}
+
+.quote {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.25px;
+    color: #231f1e;
+}
+
+.learn-more-button {
+    width: fit-content;
+    padding: 1rem 2rem;
+    background-color: #003D29;
+    color: white;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    border-radius: 50px;
+}

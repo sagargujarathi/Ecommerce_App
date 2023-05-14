@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Heropage from "./components/Heropage/Heropage"
+import Navbar from "./components/Navbar/Navbar"
+import StoreItem from "./components/StoreItem"
+import Topcategory from "./components/TopCategory/Topcategory"
+import Carousel from './components/Carousel/Carousel'
+import './css/App.css'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Navbar />
+      <Heropage />
+      <Topcategory />
+      <Carousel heading='Todays Best Deals for you!' />
+      <div className="main-wrap-container">
+        <div className="main-wrap-heading">Todays Best Deals For You!</div>
+        <div className="temp">
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+          <StoreItem />
+        </div>
+      </div>
+
+    </>
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,105 @@
+.store-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    justify-self: left;
+    scroll-snap-align: start;
+    overflow: hidden;
+}
+
+.store-item-image {
+    background-color: #F5F6F6;
+    border-radius: 10px;
+    transition-duration: 200ms;
+}
+
+.store-item-content {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    padding: .5rem 0;
+}
+
+.store-item-name-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #231f1e;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 510;
+}
+
+.store-item-price sup {
+    font-size: 13px;
+}
+
+.store-item-info {
+    font-size: .76rem;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+    color: #333;
+    font-weight: 5500;
+
+}
+
+.store-item-rating {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: #08AC0A;
+}
+
+.review-count {
+    margin-left: .5rem;
+    color: #333;
+    font-size: .75rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.store-item-add-to-cart {
+    padding: .6rem 1.5rem;
+    border: 1px solid rgb(0, 61, 41);
+    width: fit-content;
+    font-family: 'Inter', sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+    border-radius: 50px;
+    background-color: transparent;
+    cursor: pointer;
+    transition-duration: 200ms;
+}
+
+.store-item-add-to-cart:hover {
+    background-color: rgb(0, 61, 41);
+    color: white;
+}
+
+.store-item-like {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    background-color: white;
+    top: 4%;
+    right: 5%;
+    border-radius: 50%;
+    color: #231f1e;
+    cursor: pointer;
+    transition-duration: 200ms;
+}
+
+.store-item-like:hover {
+    background-color: #f9dcdc;
+}
+
+.store-item-image img {
+    transition: scale 300ms ease-in-out;
+}
+
+.store-item:hover .store-item-image img {
+    scale: 1.2;
+}

@@ -1,0 +1,14 @@
+.temp {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 1.5rem;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+@media (max-width : 400px) {
+    .temp {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -1,0 +1,64 @@
+
+.nav-bar {
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    color: #231f1e;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: .5rem 1rem;
+    border-radius: 50px;
+}
+
+.search-bar {
+    border: none;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.25px;
+    font-size: .9rem;
+}
+
+.links-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.link {
+    list-style: none;
+    cursor: pointer;
+}
+
+.account-cart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.account-cart-container span {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .5rem;
+    font-size: .9rem;
+    cursor: pointer;
+
+}
