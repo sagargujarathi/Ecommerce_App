@@ -22,6 +22,21 @@
     justify-content: center;
 }
 
+.main-wrap-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    width: 85%;
+    margin: 8rem auto 0rem auto;
+}
+
+.main-wrap-heading {
+    font-size: 1.7rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+}
+
 .main-wrap-button-container {
     display: flex;
     flex-wrap: wrap;
@@ -31,5 +46,15 @@
 @media (max-width : 400px) {
     .temp {
         grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width : 1000px) {
+    .main-wrap-container {
+        width: 90% !important;
+    }
+
+    .main-wrap-heading {
+        font-size: 1.4rem !important;
     }
 }
