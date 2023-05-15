@@ -1,0 +1,10 @@
+.button1 {
+    padding: .7rem 1.5rem;
+    border: 1px solid #c5c5c5;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: transparent;
+    border-radius: 50px;
+    cursor: pointer;
+}

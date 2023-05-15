@@ -6,6 +6,8 @@ import Carousel from './components/Carousel/Carousel'
 import './css/App.css'
 import BrandCard from "./components/BrandCard"
 import OfferCard from "./components/OfferCard"
+import Button1 from "./components/Button1"
+import ItemPage from "./components/ItemPage/ItemPage"
 function App() {
   return (
     <>
@@ -38,6 +40,17 @@ function App() {
       </div>
       <div className="main-wrap-container">
         <div className="main-wrap-heading">Todays Best Deals For You!</div>
+        <div className="main-wrap-button-container">
+          <Button1 name='Gadgets' />
+          <Button1 name='Fashion' />
+          <Button1 name='Toys' />
+          <Button1 name='Education' />
+          <Button1 name='Beauty' />
+          <Button1 name='Fitness' />
+          <Button1 name='Furniture' />
+          <Button1 name='Sneakers' />
+
+        </div>
         <div className="temp">
           <StoreItem />
           <StoreItem />
@@ -62,6 +75,7 @@ function App() {
           <StoreItem />
         </div>
       </div>
+      <ItemPage />
     </>
   )
 }
