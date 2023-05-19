@@ -1,7 +1,7 @@
 import StoreItem from '../StoreItem'
 import '../../css/Carousel/Carousel.css'
 import { useEffect, useRef, useState } from 'react'
-function Carousel(props) {
+function Carousel({ productData }) {
     const [progress, setProgress] = useState(0)
     const scrollContainerRef = useRef()
     let mouseDownPosition = 0, mouseDown = false, scrollLeft = 0;
@@ -61,32 +61,16 @@ function Carousel(props) {
     }, [])
     return (
         <>
-            <div className="main-wrap-container">
-                <div className="main-wrap-heading" >{props.heading}</div>
-                <div className="scroll-container" ref={scrollContainerRef}>
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                    <StoreItem />
-                </div>
-                <div className="scroll-progress-bar">
-                    <div className="scroll-progress-load-bar" style={{ width: `${progress}%` }}></div>
-                </div>
+            <div className="scroll-container" ref={scrollContainerRef}>
+                {
+                    productData.map(product => {
+                        return <StoreItem productData={product} />
+                    })
+                }
+                <StoreItem />
+            </div>
+            <div className="scroll-progress-bar">
+                <div className="scroll-progress-load-bar" style={{ width: `${progress}%` }}></div>
             </div>
         </>
     )

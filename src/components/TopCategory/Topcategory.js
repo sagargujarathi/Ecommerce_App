@@ -1,16 +1,15 @@
 import '../../css/TopCategory/TopCategory.css'
 import TopcategoryItem from './TopcategoryItem'
-function Topcategory() {
+function Topcategory({ data, heading }) {
     return (
         <div className="main-wrap-container">
-            <div className="main-wrap-heading">Shop Our Top Categories</div>
+            <div className="main-wrap-heading">{heading}</div>
             <div className="top-category">
-                <TopcategoryItem />
-                <TopcategoryItem />
-                <TopcategoryItem />
-                <TopcategoryItem />
-                <TopcategoryItem />
-                <TopcategoryItem />
+                {
+                    data.map(item => {
+                        return <TopcategoryItem topcategoryName={item.topCategoryName} topCategoryImage={item.topCategoryImage} />
+                    })
+                }
             </div>
         </div>
     )
