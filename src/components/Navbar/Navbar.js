@@ -24,6 +24,7 @@ function Navbar() {
         }
     }
     useEffect(() => {
+        handleResize()
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
     }, [])
@@ -48,13 +49,14 @@ function Navbar() {
                             </div>
                             : ''
                     }
-                    <div className="account-cart-container">
 
-                        {
-                            !search ?
-                                <MenuIcon />
-                                :
-                                <>
+                    {
+                        !search ?
+                            <MenuIcon />
+                            :
+                            <>
+                                <div className="account-cart-container">
+
                                     <span>
                                         {
                                             allowIcon ? <PersonIcon /> : ''
@@ -66,9 +68,10 @@ function Navbar() {
                                             allowIcon ? <AddShoppingCartIcon /> : ''
                                         }
                                         Cart
-                                    </span></>
-                        }
-                    </div>
+                                    </span>
+                                </div>
+                            </>
+                    }
                 </div>
             </section>
         </>

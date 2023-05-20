@@ -13,6 +13,7 @@
     background-color: #F5F6F6;
     border-radius: 10px;
     transition-duration: 200ms;
+    overflow: hidden;
 }
 
 .store-item-content {
@@ -97,8 +98,11 @@
 
 .store-item-image img {
     transition: scale 300ms ease-in-out;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .store-item:hover .store-item-image img {
-    scale: 1.2;
+    scale: 1.1;
 }

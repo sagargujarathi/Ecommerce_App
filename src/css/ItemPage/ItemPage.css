@@ -29,13 +29,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .item-main-pic img {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    height: 100%;
+    width: 100%;
     transition-duration: 200ms;
 }
 
@@ -50,6 +51,7 @@
     background-color: #F5F6F6;
     border-radius: 7px;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .item-general-details {
@@ -69,6 +71,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+
 }
 
 .item-page-heading {
@@ -204,6 +207,6 @@
     }
 
     .item-page-container {
-        width: 90% !important;
+        width: 95% !important;
     }
 }
