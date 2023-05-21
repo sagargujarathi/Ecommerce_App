@@ -17,4 +17,8 @@ a {
     text-decoration: inherit;
 }
 
+::-webkit-slider-thumb {
+    background-color: transparent
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');

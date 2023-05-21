@@ -7,7 +7,7 @@ import Button2 from '../Button2';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import AssignmentReturnedIcon from '@mui/icons-material/AssignmentReturned';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 function ItemPage({ productData }) {
     function handleDataReducer(state, action) {
         switch (action.type) {
@@ -15,10 +15,16 @@ function ItemPage({ productData }) {
                 return { ...state, mainImage: action.payload }
             case 'changeColor':
                 return { ...state, color: action.payload.color, images: action.payload.images, mainImage: action.payload.images[0] }
+            case 'reset':
+                return action.payload
 
         }
     }
     const [data, dispatch] = useReducer(handleDataReducer, { color: productData.itemColor[0].color, images: productData.itemColor[0].images, mainImage: productData.itemColor[0].images[0] })
+    useEffect(() => {
+        dispatch({ type: 'reset', payload: { color: productData.itemColor[0].color, images: productData.itemColor[0].images, mainImage: productData.itemColor[0].images[0] } })
+        document.querySelector('.item-page-container').scrollIntoView()
+    }, [productData])
     return (
         <div className="item-page-container">
             <div className="item-wrapper">
@@ -41,7 +47,7 @@ function ItemPage({ productData }) {
                 </div>
                 <div className="item-general-details">
                     <div className="general-item-wrap">
-                        <span className="item-page-heading">AirPods- Max</span>
+                        <span className="item-page-heading">{productData.itemName}</span>
                         <span className="item-page-quote">{productData.itemInfo}</span>
                         <span className="store-item-rating">
                             {
@@ -88,7 +94,7 @@ function ItemPage({ productData }) {
                     <div className="delivery-options-container">
                         <div className="delivery-option">
                             <span className="upper-text-in-delivery-option">
-                                <LocalShippingIcon />
+                                <LocalShippingIcon style={{ color: '#F29A53' }} />
                                 Free Delivery
                             </span>
                             <span className="lower-text-in-delivery-option">
@@ -97,7 +103,7 @@ function ItemPage({ productData }) {
                         </div>
                         <div className="delivery-option">
                             <span className="upper-text-in-delivery-option">
-                                <AssignmentReturnedIcon />
+                                <AssignmentReturnedIcon style={{ color: '#F29A53' }} />
                                 Return Delivery
                             </span>
                             <span className="lower-text-in-delivery-option">

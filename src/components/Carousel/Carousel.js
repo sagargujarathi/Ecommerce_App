@@ -1,6 +1,7 @@
 import StoreItem from '../StoreItem'
 import '../../css/Carousel/Carousel.css'
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 function Carousel({ productData }) {
     const [progress, setProgress] = useState(0)
     const scrollContainerRef = useRef()
@@ -38,13 +39,15 @@ function Carousel({ productData }) {
         const scroll = x - mouseDownPosition;
         scrollContainerRef.current.scrollLeft = scrollLeft - scroll;
     }
-    function handleScroll(e) {
-        setProgress(Math.ceil((scrollContainerRef.current.scrollLeft / (scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth)
-        ) * 100))
+    function handleScroll() {
+        let i = Math.ceil((scrollContainerRef.current.scrollLeft / (scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth)
+        ) * 100)
+        setProgress(i == 0 ? 10 : i)
     }
     useEffect(() => {
         const element = scrollContainerRef.current
         handleResize()
+        handleScroll()
         window.addEventListener('resize', handleResize)
         element.addEventListener('mousedown', handleMouseDown)
         element.addEventListener('mouseup', handleMouseUp)
@@ -64,10 +67,11 @@ function Carousel({ productData }) {
             <div className="scroll-container" ref={scrollContainerRef}>
                 {
                     productData.map(product => {
-                        return <StoreItem productData={product} />
+                        return <Link to={product.itemName}>
+                            <StoreItem productData={product} />
+                        </Link>
                     })
                 }
-                <StoreItem />
             </div>
             <div className="scroll-progress-bar">
                 <div className="scroll-progress-load-bar" style={{ width: `${progress}%` }}></div>

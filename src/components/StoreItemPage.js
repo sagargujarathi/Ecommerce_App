@@ -4,6 +4,9 @@ import StoreItem from './StoreItem'
 import Button1 from './Button1'
 function StoreItemPage({ data, heading, button }) {
     const [sortData, setSortData] = useState(data)
+    function handleSort(name) {
+        setSortData(data.filter(section => section.sectionName === name))
+    }
     return (
         <div className="main-wrap-container">
             <div className="main-wrap-heading">{heading}</div>
@@ -15,7 +18,7 @@ function StoreItemPage({ data, heading, button }) {
                                 return (
                                     <Button1
                                         name={item.sectionName}
-                                        onClick={() => setSortData(data.filter(section => { return  section.sectionName == item.sectionName }))}
+                                        handleSort={handleSort}
                                         style={{ backgroundColor: (sortData == item) ? 'rgb(0, 61, 41)' : '', color: (sortData == item) ? 'white' : '' }}
                                     />
                                 )
@@ -31,7 +34,7 @@ function StoreItemPage({ data, heading, button }) {
                             return data.sectionItems.map(product => {
                                 return (
                                     <>
-                                        <Link to={`${product.itemName}`} style={{ textDecoration: 'none' }}>
+                                        <Link to={`/${product.itemName}`} style={{ textDecoration: 'none' }}>
                                             <StoreItem productData={product} />
                                         </Link>
                                     </>

@@ -1,9 +1,9 @@
 import '../css/Button1.css'
 
-function Button1(props) {
+function Button1({ name, handleSort }) {
     return (
-        <button className="button1">
-            {props.name}
+        <button className="button1" onClick={() => handleSort(name)}>
+            {name}
         </button>
     )
 }

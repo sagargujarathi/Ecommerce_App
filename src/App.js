@@ -9,11 +9,14 @@ import OfferCard from "./components/OfferCard"
 import Button1 from "./components/Button1"
 import ItemPage from "./components/ItemPage/ItemPage"
 import JSONData from "./data.json"
+import carouselData from './carouselData.json'
 import { useEffect } from "react"
 import { Routes, Route, Link, NavLink } from 'react-router-dom'
 import StoreItemPage from "./components/StoreItemPage"
 function App() {
-
+  useEffect(() => {
+    console.log(carouselData[0].sectionItems)
+  }, [])
   return (
     <>
       <Navbar />
@@ -21,18 +24,22 @@ function App() {
         <Route path='/' element={
           <>
             <Heropage />
-            <StoreItemPage data={JSONData} button={true} heading={'Todays deals'} />
           </>} />
         {
           JSONData.map(item => {
             return item.sectionItems.map(data => {
               return data.sectionItems.map(product => {
-                return <Route path={`${product.itemName}`} element={<ItemPage productData={product} />} />
+                return <Route path={`/${product.itemName}`} element={<ItemPage productData={product} />} />
               })
             })
           })
         }
       </Routes>
+      <div className="main-wrap-container">
+        <div className="main-wrap-heading">Similar Items You Might Like</div>
+        <Carousel productData={carouselData[0].sectionItems} />
+      </div>
+      <StoreItemPage data={JSONData} button={true} heading={'Todays deals'} />
     </>
   )
 }
