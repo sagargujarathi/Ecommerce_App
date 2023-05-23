@@ -10,13 +10,13 @@ function Navbar() {
     const [allowIcon, setAllowIcon] = useState(true)
     const [search, setSearch] = useState(true)
     function handleResize() {
-        if (window.innerWidth <= 1000) {
+        if (window.innerWidth <= 1200) {
             setAllowIcon(false)
         }
         else {
             setAllowIcon(true)
         }
-        if (window.innerWidth <= 900) {
+        if (window.innerWidth <= 1000) {
             setSearch(false)
         }
         else {

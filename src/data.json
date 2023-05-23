@@ -30,6 +30,7 @@
                             {
                                 "color": "Black",
                                 "hex": "#080808",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/back_600x.png?v=1668599490",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/AD-141-FI_1f060ff5-cbbf-43f3-b673-41e4aacc7d79_800x.jpg?v=1657869596",
@@ -40,6 +41,7 @@
                             },
                             {
                                 "color": "White Purity",
+                                "itemLeft": 13,
                                 "hex": "#9C9C9C",
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/white_600x.png?v=1668599490",
@@ -51,6 +53,7 @@
                             },
                             {
                                 "color": "Cyan Cider",
+                                "itemLeft": 13,
                                 "hex": "#F2FFFF",
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/grey_600x.png?v=1668599490",
@@ -87,6 +90,7 @@
                             {
                                 "color": "Cool Sapphire",
                                 "hex": "#657286",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main_blue_a80b6882-1247-439d-a17b-1c87ed4fa7c8_600x.png?v=1641206192",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/AD161-FI_Black02_b3db296c-24c9-4f30-a586-66d0d6849e7e_800x.jpg?v=1674117786",
@@ -98,6 +102,7 @@
                             {
                                 "color": "Pearl White",
                                 "hex": "#E7E7E7",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main_white_600x.png?v=1641206209",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/AD161-FI_Black02_bc21c8ef-bd1e-4850-b20f-1d3a89dba389_800x.jpg?v=1674117809",
@@ -109,6 +114,7 @@
                             {
                                 "color": "Pebble Black",
                                 "hex": "#0A0A0A",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main_black_fa1c6ec3-93b7-443e-ae82-d5eeb34258f8_600x.png?v=1641206192",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/AD161-FI_Black02_800x.jpg?v=1674117743",
@@ -144,6 +150,7 @@
                             {
                                 "color": "Lightpink",
                                 "hex": "#D48F87",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/32011675-2ad8-4b99-9787-895caf201d28_600x.png?v=1642405569",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/FeatureImagesAD1314XChargecopy2_900x.jpg?v=1674156020",
@@ -155,6 +162,7 @@
                             {
                                 "color": "CrimsonCream",
                                 "hex": "#C5B898",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/cream_600x.png?v=1668756103",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/ad131FIAD131TypeCcopy5_900x.jpg?v=1674156020",
@@ -166,6 +174,7 @@
                             {
                                 "color": "Black",
                                 "hex": "#22201F",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/c2386af9-4349-432f-8ba5-2b6aa06025c8_600x.png?v=1668756103",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/FeatureImagesAD1314XCharge_900x.jpg?v=1674156020",
@@ -177,6 +186,7 @@
                             {
                                 "color": "Steelblue",
                                 "hex": "#586575",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/616b4ead-bbd9-4a16-aeab-8d331a16f697_600x.png?v=1642405569",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/FeatureImagesAD1314XChargecopy_900x.jpg?v=1674156020",
@@ -188,6 +198,7 @@
                             {
                                 "color": "ViperGreen",
                                 "hex": "#3E5844",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/viper-green_600x.png?v=1642405569",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/FeatureImagesAD1314XChargecopy3_900x.jpg?v=1674156020",
@@ -199,6 +210,7 @@
                             {
                                 "color": "Ivory White",
                                 "hex": "#E3E3E3",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/ivory-white_600x.png?v=1639466536"
                                 ]
@@ -230,6 +242,7 @@
                             {
                                 "color": "Black",
                                 "hex": "#000000",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/2_85232e56-016f-4201-8612-d70525d301b5_600x.png?v=1663821109"
                                 ]
@@ -237,6 +250,7 @@
                             {
                                 "color": "Grey",
                                 "hex": "#C4C4C4",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/1_eebd7966-a481-44a9-91a2-bef06d4c0f05_600x.png?v=1663821109"
                                 ]
@@ -268,6 +282,7 @@
                             {
                                 "color": "Krypton Blue",
                                 "hex": "#05285C",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main-image-3_4a4b18dd-18dd-485f-9f4e-94e1f3613124_600x.png?v=1655535266",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/03_1c93ea5b-186e-4418-a8cb-c97698b52d4c_900x.jpg?v=1656100829",
@@ -303,6 +318,7 @@
                             {
                                 "color": "Carbon Black",
                                 "hex": "#1F1F1F",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main_black_357b6c8e-1332-4864-bf5c-b83ca9caf4bc_600x.png?v=1641980343",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/AD181-FI_Black01_800x.png?v=1659000222",
@@ -314,6 +330,7 @@
                             {
                                 "color": "Cool Grey",
                                 "hex": "#B6B6B6",
+                                "itemLeft": 6,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main_grey_6aa6c302-2cfb-4e87-85f7-d67b6f149bf7_600x.png?v=1641980344",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/AD181-FI_Grey01_800x.png?v=1659000346",
@@ -325,6 +342,7 @@
                             {
                                 "color": "Bold Blue",
                                 "hex": "#7A8898",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main_blue_eb862c0f-658f-43a2-99c2-65783233f592_600x.png?v=1641980344",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/AD181-FI_Blue01_800x.png?v=1659000346",
@@ -336,6 +354,7 @@
                             {
                                 "color": "Spirit White",
                                 "hex": "#ECECEC",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main_white_3eedf9f5-7be0-442c-9553-a9f31d40427c_600x.png?v=1641980344",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/AD181-FI_White01_800x.png?v=1659000346",
@@ -376,6 +395,7 @@
                             {
                                 "color": "Black Sabre",
                                 "hex": "#000000",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/2_f3aa2756-01f3-4e39-80bc-7b4f6551c7aa_600x.png?v=1625748159"
                                 ]
@@ -383,6 +403,7 @@
                             {
                                 "color": "White Sabre",
                                 "hex": "#FFFFFF",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/1_600x.png?v=1625748155"
                                 ]
@@ -390,6 +411,7 @@
                             {
                                 "color": "Green",
                                 "hex": "#059A05",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main_green_551e0f56-cb9c-4910-be88-3c9fd1383c50_600x.png?v=1652363760"
                                 ]
@@ -421,6 +443,7 @@
                             {
                                 "color": "Blue",
                                 "hex": "#6C83A9",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/IM1300_main_4_600x.png?v=1632715015",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/IM1300-FI_Blue02_800x.png?v=1659425496",
@@ -434,6 +457,7 @@
                             {
                                 "color": "Black",
                                 "hex": "#666666",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/IM1300_main_3_600x.png?v=1632715016",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/IM1300-FI_Black02_800x.png?v=1659425496",
@@ -446,6 +470,7 @@
                             {
                                 "color": "Red",
                                 "hex": "#FF6666",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/IM1300_main_2_600x.png?v=1632715015",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/IM1300-FI_Red02_800x.png?v=1659425496",
@@ -458,6 +483,7 @@
                             {
                                 "color": "White",
                                 "hex": "#F5F8F5",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/IM1300_main_1_600x.png?v=1632715016",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/IM1300-FI_White02_800x.png?v=1659425496",
@@ -499,6 +525,7 @@
                             {
                                 "color": "Charcoal Black",
                                 "hex": "#2A2A2A",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/black2_600x.png?v=1654312291",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/02_3103aeab-67e6-49a8-88d1-48eb63704439_800x.jpg?v=1665558205",
@@ -510,6 +537,7 @@
                             {
                                 "color": "Cool Grey",
                                 "hex": "#858585",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/white_76324f86-6d4f-4292-8616-49d743a6e0c0_600x.png?v=1654312291",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/02_1cbc46a2-bcd4-4113-992b-21b11ff383bb_800x.jpg?v=1665558205",
@@ -521,6 +549,7 @@
                             {
                                 "color": "Deep Blue",
                                 "hex": "#000080",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/blue_d8db0011-02f7-43d6-9fe7-7a71a9ed86d2_600x.png?v=1654312290",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/02_27813362-ca42-4207-b5f3-fbacaadc6213_800x.jpg?v=1665558205",
@@ -532,6 +561,7 @@
                             {
                                 "color": "Olive Green",
                                 "hex": "#495634",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/connect-OG_600x.png?v=1665558205"
                                 ]
@@ -562,6 +592,7 @@
                             {
                                 "color": "Active Black",
                                 "hex": "#2A2A2A",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/removal.ai__tmp-63679b9ab29ed_800x.png?v=1667734467"
                                 ]
@@ -569,6 +600,7 @@
                             {
                                 "color": "Grey",
                                 "hex": "#414347",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/removal.ai__tmp-63679b6ca9745_800x.png?v=1667734468"
                                 ]
@@ -576,6 +608,7 @@
                             {
                                 "color": "Purple",
                                 "hex": "#433664",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/removal.ai__tmp-63679b4457d0e_800x.png?v=1667734468"
                                 ]
@@ -583,6 +616,7 @@
                             {
                                 "color": "Teal",
                                 "hex": "#2B4A57",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/removal.ai__tmp-63679b0fb06a2_800x.png?v=1667734467"
                                 ]
@@ -614,6 +648,7 @@
                             {
                                 "color": "Pitch Black",
                                 "hex": "#131313",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main2_529ecf13-c993-4fe7-a2d6-9357f1a47db4_600x.png?v=1650387008",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/xtend-FI-black_05_800x.jpg?v=1673003162",
@@ -625,6 +660,7 @@
                             {
                                 "color": "Olive Green",
                                 "hex": "#2E3425",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main1_600x.png?v=1650386995",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/xtend-FI-green_05_800x.jpg?v=1673003161",
@@ -636,6 +672,7 @@
                             {
                                 "color": "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/xtend-FI-green_06_800x.jpg?v=1655183505",
                                 "hex": "#394564",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main3_1_600x.png?v=1673003221",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/xtend-FI-blue_05_800x.jpg?v=1673005981",
@@ -647,6 +684,7 @@
                             {
                                 "color": "Charcoal Black",
                                 "hex": "#2A2A2A",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/xtend_black_600x.png?v=1650387008",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/Xtend-FI_Charcoal-Black07_800x.png?v=1655183505",
@@ -658,6 +696,7 @@
                             {
                                 "color": "Sandy Cream",
                                 "hex": "#D0BFB8",
+                                "itemLeft": 13,
                                 "images": [
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/main6_2_600x.png?v=1640628318",
                                     "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/xtend-FI-pink_05_800x.jpg?v=1672999299",

@@ -67,7 +67,7 @@ function Carousel({ productData }) {
             <div className="scroll-container" ref={scrollContainerRef}>
                 {
                     productData.map(product => {
-                        return <Link to={product.itemName}>
+                        return <Link to={`/product/${product.itemName}`} style={{ textDecoration: 'none' }} state={product}>
                             <StoreItem productData={product} />
                         </Link>
                     })

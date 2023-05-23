@@ -82,7 +82,7 @@
 }
 
 .item-page-quote {
-    font-size: 1rem;
+    font-size: .9rem;
     font-family: 'Inter', sans-serif;
     letter-spacing: 0.5px;
     color: #333;
@@ -181,6 +181,54 @@
     font-size: .8rem;
     font-family: 'Poppins', sans-serif;
     color: rgba(0, 0, 0, 0.7);
+}
+
+.item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.quantity-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F6F6F6;
+    color: rgb(0, 61, 41);
+    border-radius: 50px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+}
+
+.quantity-button div {
+    padding: .6rem 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.plus,
+.minus {
+    cursor: pointer;
+    transition-duration: 200ms;
+}
+
+.plus:hover,
+.minus:hover {
+    scale: 1.1;
+}
+
+.quantity-info {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.4;
+    font-size: .8rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.quantity-color {
+    color: #F29A53;
 }
 
 @media (max-width : 1000px) {

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import StoreItem from './StoreItem'
 import Button1 from './Button1'
 function StoreItemPage({ data, heading, button }) {
@@ -34,7 +34,11 @@ function StoreItemPage({ data, heading, button }) {
                             return data.sectionItems.map(product => {
                                 return (
                                     <>
-                                        <Link to={`/${product.itemName}`} style={{ textDecoration: 'none' }}>
+                                        <Link
+                                            to={`/product/${product.itemName}`}
+                                            style={{ textDecoration: 'none' }}
+                                            state={product}>
+
                                             <StoreItem productData={product} />
                                         </Link>
                                     </>

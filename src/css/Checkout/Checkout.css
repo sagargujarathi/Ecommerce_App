@@ -1,0 +1,255 @@
+.checkout-location {
+    font-family: 'Inter', sans-serif;
+    font-size: .9rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.checkout-container {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .5fr);
+    grid-template-rows: auto minmax(0, 1fr);
+}
+
+.checkout-container>div {
+    border-radius: 10px;
+    border: 2px solid #E8E8E8;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    height: max-content;
+}
+
+.item-review-and-shipping {
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-heading {
+    font-size: 1.4rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.item-review-and-shipping-inner-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-image-and-name {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.checkout-image-container {
+    aspect-ratio: 1/1;
+    background-color: #F5F6F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.checkout-image-container img {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    aspect-ratio: 1/1;
+    height: 100%;
+}
+
+.checkout-name-and-color,
+.checkout-price-and-quantity {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.checkout-price-and-quantity {
+    align-items: end;
+}
+
+.checkout-name {
+    font-size: 1.4rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.checkout-color {
+    font-size: .9rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.checkout-price {
+    font-size: 1.3rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.checkout-quantity {
+    font-size: .9rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+.delivery-information {
+    grid-row: 2/3;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: .95rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.65);
+    flex-grow: 1;
+}
+
+.checkout-input {
+    padding: .7rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    outline: none;
+    border-radius: 3px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.order-summary {
+    grid-column: 2/3;
+    grid-row: 1/-1;
+    display: flex;
+    flex-direction: column;
+}
+
+.coupon-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #F6F6F6;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.coupon-input {
+    padding: .6rem .6rem;
+    flex-grow: 1;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.coupon-button {
+    padding: .6rem 1rem;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    background-color: #023C28;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.checkout-secondary-heading {
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.payment-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.payment-radio {
+    font-size: .9rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.payment-radio input {
+    cursor: pointer;
+}
+
+.card-images {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .6rem;
+}
+
+.checkout-card {
+    border-radius: 5px;
+    border: 1px solid #d9d9d9;
+    height: 40px;
+    width: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkout-card img {
+    background-size: cover;
+    background-position: center;
+}
+
+.final-order-details {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0 0 0 ;
+    gap: 1rem;
+    font-size: .9rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.final-order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
