@@ -175,6 +175,7 @@
     gap: 1rem;
     align-items: center;
     font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 .lower-text-in-delivery-option {

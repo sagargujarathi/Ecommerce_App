@@ -1,0 +1,75 @@
+/* Payment popup css */
+
+.blurry-background {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.payment-popup {
+    position: fixed;
+    max-height: 500px;
+    height: 90vh;
+    max-width: 450px;
+    width: 90vw;
+    top: 50%;
+    left: 50%;
+    border-radius: 15px;
+    transform: translate(-50%, -50%);
+    background-image: url(../images/blurry-background.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 1.5rem;
+    gap: 1.5rem;
+}
+
+.popup-heading {
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+
+}
+
+.popup-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.trans {
+    font-size: .8rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.button3 {
+    padding: .5rem 1rem;
+    background-color: #FF7007;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    cursor: pointer;
+    transition-duration: 200ms;
+}
+
+.button3:hover {
+    background-color: #ff6a00;
+    scale: 1.01;
+}

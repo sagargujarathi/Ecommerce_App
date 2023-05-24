@@ -1,4 +1,3 @@
-
 .hero-page {
     background-image: url(../../images/banner-background.png);
     background-position: center;
@@ -35,7 +34,8 @@
     font-size: 3.8rem;
     font-family: sans-serif;
     letter-spacing: 0.50px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
     color: #003D29;
     line-height: 5rem;
 }

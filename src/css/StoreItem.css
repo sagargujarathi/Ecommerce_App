@@ -27,9 +27,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #231f1e;
     font-family: 'Inter', sans-serif;
-    font-size: 1.2rem;
+    color: #231f1e;
+    font-size: 1.1rem;
     font-weight: 600;
 }
 
@@ -63,9 +63,8 @@
     padding: .6rem 1.5rem;
     border: 1px solid rgb(0, 61, 41);
     width: fit-content;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: .9rem;
-    font-weight: 500;
     border-radius: 50px;
     background-color: transparent;
     cursor: pointer;

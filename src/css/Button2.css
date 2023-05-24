@@ -8,6 +8,7 @@
     color: rgb(0, 61, 41);
     cursor: pointer;
     transition-duration: 200ms;
+    font-weight: 600;
 }
 
 .button-2:hover {
