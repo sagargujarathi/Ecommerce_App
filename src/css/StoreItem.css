@@ -27,18 +27,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Inter', sans-serif;
-    color: #231f1e;
-    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.125rem;
     font-weight: 600;
 }
 
 .store-item-price sup {
-    font-size: 13px;
+    font-size: 0.9rem;
+    vertical-align: super;
 }
 
 .store-item-info {
-    font-size: .76rem;
+    font-size: .75rem;
     font-family: 'Inter', sans-serif;
     letter-spacing: 0.4px;
     color: #333;
@@ -54,9 +55,10 @@
 
 .review-count {
     margin-left: .5rem;
-    color: #333;
+    color: rgba(0, 0, 0, 0.5);
     font-size: .75rem;
     font-family: 'Inter', sans-serif;
+    font-weight: 600;
 }
 
 .store-item-add-to-cart {

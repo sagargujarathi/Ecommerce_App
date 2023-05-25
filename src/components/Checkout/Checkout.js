@@ -13,7 +13,7 @@ import Button2 from '../Button2'
 import InputContainer from '../InputContainer'
 import InputContainer2 from '../InputContainer2'
 import PaymentPopup from '../PaymentPopup'
-const cardImages = [
+export const cardImages = [
     { card: card1, name: 'Amazon' },
     { card: card2, name: 'Gpay' },
     { card: card3, name: 'Applepay' },
@@ -55,7 +55,9 @@ const coupon =
         { code: 'MEOW', discount: -90.00 },
         { code: 'NIKOCHAN', discount: -100.20 },
         { code: 'SHOPCART', discount: -51.00 },
-        { code: 'GOAT', discount: -99.99 }
+        { code: 'GOAT', discount: -99.99 },
+        { code: 'TORACHAN', discount: 'free' }
+
     ]
 export const TYPES = {
     FIRSTNAME: 'firstname',

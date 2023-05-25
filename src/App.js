@@ -8,10 +8,13 @@ import carouselData from './carouselData.json'
 import { Routes, Route } from 'react-router-dom'
 import StoreItemPage from "./components/StoreItemPage"
 import Checkout from "./components/Checkout/Checkout"
+import Footer from './components/Footer/Footer'
+import { useState } from "react"
 function App() {
+  const [addToCart, setAddToCart] = useState(0)
   return (
     <>
-      <Navbar />
+      <Navbar productData={JSONData} />
       <Routes>
         <Route path="/" element={
           <>
@@ -33,7 +36,7 @@ function App() {
         } />
         <Route path="/product/:product/checkout" element={<Checkout />} />
       </Routes>
-
+      <Footer />
     </>
   )
 }
