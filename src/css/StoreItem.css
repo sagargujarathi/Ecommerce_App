@@ -71,6 +71,7 @@
     background-color: transparent;
     cursor: pointer;
     transition-duration: 200ms;
+    opacity: 5;
 }
 
 .store-item-add-to-cart:hover {

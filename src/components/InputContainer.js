@@ -1,6 +1,6 @@
 import React from 'react'
 
-function InputContainer({ name, placeHolder, inputType, callBack }) {
+function InputContainer({ name, placeHolder, inputType, callBack, value }) {
     return (
         <div className="input-container">
             <label htmlFor={name}>{name}</label>
@@ -10,6 +10,7 @@ function InputContainer({ name, placeHolder, inputType, callBack }) {
                 className='checkout-input'
                 required
                 placeholder={placeHolder}
+                value={value}
                 onChange={(e) => callBack.dispatch({ type: callBack.type, payload: e.target.value })}
             />
         </div>

@@ -9,34 +9,52 @@ import { Routes, Route } from 'react-router-dom'
 import StoreItemPage from "./components/StoreItemPage"
 import Checkout from "./components/Checkout/Checkout"
 import Footer from './components/Footer/Footer'
-import { useState } from "react"
+import { useState, createContext, useEffect } from "react"
+export const themeContext = createContext()
+
 function App() {
-  const [addToCart, setAddToCart] = useState(0)
+  const [addToCart, setAddToCart] = useState({ cartCount: 0, cartData: [] })
+  function handleCart(data) {
+    if (addToCart.cartData.some(item => item.itemName == data.itemName)) {
+      return
+    }
+    localStorage.setItem('cartData', JSON.stringify({ cartCount: addToCart.cartCount + 1, cartData: [...addToCart.cartData, data] }))
+    setAddToCart(p => { return { cartCount: p.cartCount + 1, cartData: [...p.cartData, data] } })
+  }
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('cartData'))
+    if (data != null) {
+      setAddToCart(data)
+    }
+  }, [])
   return (
     <>
-      <Navbar productData={JSONData} />
-      <Routes>
-        <Route path="/" element={
-          <>
-            <Heropage />
-            <div className="main-wrap-container">
-              <div className="main-wrap-heading">Similar Items You Might Like</div>
-              <Carousel productData={carouselData[0].sectionItems} />
-            </div>
-            <StoreItemPage data={JSONData} button={true} heading={'Todays deals'} />
-          </>} />
-        <Route path="/product/:name" element={
-          <><ItemPage />
-            <div className="main-wrap-container">
-              <div className="main-wrap-heading">Similar Items You Might Like</div>
-              <Carousel productData={carouselData[0].sectionItems} />
-            </div>
-            <StoreItemPage data={JSONData} button={true} heading={'Todays deals'} />
-          </>
-        } />
-        <Route path="/product/:product/checkout" element={<Checkout />} />
-      </Routes>
-      <Footer />
+      <themeContext.Provider value={handleCart}>
+        <Navbar productData={JSONData} cartData={addToCart} />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Heropage />
+              <div className="main-wrap-container">
+                <div className="main-wrap-heading">Similar Items You Might Like</div>
+                <Carousel productData={carouselData[0].sectionItems} />
+              </div>
+              <StoreItemPage data={JSONData} button={true} heading={'Todays deals'} />
+            </>} />
+          <Route path="/product/:name" element={
+            <>
+              <ItemPage />
+              <div className="main-wrap-container">
+                <div className="main-wrap-heading">Similar Items You Might Like</div>
+                <Carousel productData={carouselData[0].sectionItems} />
+              </div>
+              <StoreItemPage data={JSONData} button={true} heading={'Todays deals'} />
+            </>
+          } />
+          <Route path="/product/:product/checkout" element={<Checkout />} />
+        </Routes>
+        <Footer />
+      </themeContext.Provider>
     </>
   )
 }

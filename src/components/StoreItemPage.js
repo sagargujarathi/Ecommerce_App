@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import StoreItem from './StoreItem'
 import Button1 from './Button1'
-function StoreItemPage({ data, heading, button }) {
+function StoreItemPage({ data, heading, button, handleCart }) {
     const [sortData, setSortData] = useState(data)
     function handleSort(name) {
         setSortData(data.filter(section => section.sectionName === name))
@@ -39,7 +39,7 @@ function StoreItemPage({ data, heading, button }) {
                                             style={{ textDecoration: 'none' }}
                                             state={product}>
 
-                                            <StoreItem productData={product} />
+                                            <StoreItem productData={product} handleCart={handleCart} />
                                         </Link>
                                     </>
                                 )

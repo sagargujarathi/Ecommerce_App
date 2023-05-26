@@ -3,7 +3,10 @@ import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
+import { useContext } from 'react';
+import { themeContext } from '../App'
 function StoreItem({ productData }) {
+    const context = useContext(themeContext)
     return (
         <>
             <div className="store-item">
@@ -32,7 +35,10 @@ function StoreItem({ productData }) {
                         }
                         <span className="review-count">({productData.itemReviewCount})</span>
                     </span>
-                    <button className="store-item-add-to-cart">Add to Cart</button>
+                    <button className="store-item-add-to-cart" onClick={(e) => {
+                        e.preventDefault()
+                        context(productData)
+                    }}>Add to Cart</button>
                 </div>
                 <span className="store-item-like">
                     <FavoriteBorderIcon fontSize='small' />

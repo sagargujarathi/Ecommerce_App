@@ -89,8 +89,44 @@ function OrderDetails({ name, cost, style }) {
 }
 function Checkout() {
     const { state } = useLocation()
+    function verifyData(data) {
+        const deliveyInfo = data.deliveryInformation
+        if (deliveyInfo.firstName != '' &&
+            deliveyInfo.lastName != '' &&
+            deliveyInfo.address != '' &&
+            deliveyInfo.city != '' &&
+            deliveyInfo.zip != '' &&
+            deliveyInfo.mobile != '' &&
+            deliveyInfo.email != '') {
+            if (data.deliveryOptions == 'cash' || data.deliveryOptions == '') {
+                if (data.paymentDetails.email != '') {
+                    return true
+                }
+            }
+            else if (data.paymentDetails.email != '' &&
+                data.paymentDetails.cardHolderName != '' &&
+                data.paymentDetails.cardNumber != '' &&
+                data.paymentDetails.expiry != '' &&
+                data.paymentDetails.cvv != '' &&
+                data.card != ''
+            ) {
+                return true
+            }
+        }
+        return false
+    }
+    function saveData(data) {
+        localStorage.setItem('deliveryInformation', JSON.stringify(data))
+    }
+    function getData() {
+        const data = localStorage.getItem('deliveryInformation')
+        if (data != null) {
+            return JSON.parse(data)
+        }
+        return false
+
+    }
     function handleData(state, { type, payload }) {
-        console.log(type)
         switch (type) {
             case TYPES.FIRSTNAME:
                 return { ...state, deliveryInformation: { ...state.deliveryInformation, firstName: payload } }
@@ -131,7 +167,13 @@ function Checkout() {
             case TYPES.SELECTCARD:
                 return { ...state, card: payload }
             case TYPES.PAYMENTDONE:
-                return { ...state, trigger: payload }
+                if (verifyData(state)) {
+                    saveData(state.deliveryInformation)
+                    return { ...state, trigger: payload }
+                }
+                else {
+                    return state
+                }
             default:
                 return state
         }
@@ -144,6 +186,10 @@ function Checkout() {
                 totalCost: (Number(state.price) * state.quantity) + Number(((Number(state.price) * state.quantity) / 10).toFixed(2)) + 9
             }
             dispatch({ type: TYPES.INITIALIZE, payload: payload })
+            const data = getData()
+            if (data != false) {
+                dispatch({ type: TYPES.INITIALIZE, payload: { deliveryInformation: data } })
+            }
         }
     }, [state])
     return (
@@ -177,12 +223,15 @@ function Checkout() {
                                 placeHolder='Type here...'
                                 inputType='text'
                                 callBack={{ dispatch, type: TYPES.FIRSTNAME }}
+                                value={data.deliveryInformation.firstName}
                             />
                             <InputContainer
                                 name='Last Name'
                                 placeHolder='Type here...'
                                 inputType='text'
                                 callBack={{ dispatch, type: TYPES.LASTNAME }}
+                                value={data.deliveryInformation.lastName}
+
                             />
                         </div>
                         <InputContainer
@@ -190,6 +239,7 @@ function Checkout() {
                             placeHolder='Type here...'
                             inputType='text'
                             callBack={{ dispatch, type: TYPES.ADDRESS }}
+                            value={data.deliveryInformation.address}
                         />
                         <div className="flex-container">
                             <InputContainer
@@ -197,12 +247,14 @@ function Checkout() {
                                 placeHolder='Type here...'
                                 inputType='text'
                                 callBack={{ dispatch, type: TYPES.CITY }}
+                                value={data.deliveryInformation.city}
                             />
                             <InputContainer
                                 name='Zip Code'
                                 placeHolder='Type here...'
                                 inputType='text'
                                 callBack={{ dispatch, type: TYPES.ZIP }}
+                                value={data.deliveryInformation.zip}
                             />
                         </div>
                         <div className="flex-container">
@@ -211,12 +263,14 @@ function Checkout() {
                                 placeHolder='Type here...'
                                 inputType='tel'
                                 callBack={{ dispatch, type: TYPES.MOBILE }}
+                                value={data.deliveryInformation.mobile}
                             />
                             <InputContainer
                                 name='Email'
                                 placeHolder='Type here...'
                                 inputType='email'
                                 callBack={{ dispatch, type: TYPES.D_EMAIL }}
+                                value={data.deliveryInformation.email}
                             />
                         </div>
                     </div>

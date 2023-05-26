@@ -5,11 +5,13 @@ import Button2 from '../Button2';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import AssignmentReturnedIcon from '@mui/icons-material/AssignmentReturned';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
-import { useEffect, useReducer } from 'react';
+import { useContext, useEffect, useReducer } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { themeContext } from '../../App';
 function ItemPage() {
+    const context = useContext(themeContext)
     const handleDataReducer = (state, { type, payload }) => {
         switch (type) {
             case 'ChangeMainImage':
@@ -139,7 +141,9 @@ function ItemPage() {
                                         }}>
                                             <Button2 name='Buy Now' />
                                         </Link>
-                                        <Button2 name='Add to Cart' />
+                                        <button className="button-2" onClick={() => context(state)}>
+                                            Add to Cart
+                                        </button>
                                     </div>
                                 </div>
                                 <div className="delivery-options-container">

@@ -12,16 +12,18 @@ const TYPES = {
     ISICONSVISIBLE: 'isiconsvisible',
     ISNAVLINKSVISIBLE: 'isnavlinksvisible',
     ISSEARCHRESULTSVISIBLE: 'issearchresultsvisible',
-    SEARCHRESULT: 'searchresult'
+    SEARCHRESULT: 'searchresult',
+    ISCARTVISIBLE: 'iscartvisible'
 }
 const stateTemplate = {
     isIconsVisible: false,
     isNavLinksVisible: true,
     isSearchResultsVisible: false,
     searchValue: '',
-    searchResult: []
+    searchResult: [],
+    isCartVisible: false
 }
-function Navbar({ productData }) {
+function Navbar({ productData, cartData }) {
     function handleState(state, { type, payload }) {
         switch (type) {
             case TYPES.ISICONSVISIBLE:
@@ -43,6 +45,8 @@ function Navbar({ productData }) {
                     }
                 }
                 return { ...state, searchResult: payload, isSearchResultsVisible: false }
+            case TYPES.ISCARTVISIBLE:
+                return { ...state, isCartVisible: payload }
             default:
                 return state
         }
@@ -52,25 +56,24 @@ function Navbar({ productData }) {
         dispatch({ type: TYPES.ISICONSVISIBLE, payload: !(window.innerWidth <= 1200) })
         dispatch({ type: TYPES.ISNAVLINKSVISIBLE, payload: !(window.innerWidth <= 1000) })
     }
+    function handleClick() {
+        if (state.isSearchResultsVisible == true || state.searchResult.length > 0) {
+            dispatch({ type: TYPES.ISSEARCHRESULTSVISIBLE, payload: false })
+            dispatch({ type: TYPES.SEARCHRESULT, payload: '' })
+        }
+        if (state.isCartVisible == true) {
+            dispatch({ type: TYPES.ISCARTVISIBLE, payload: false })
+        }
+    }
     useEffect(() => {
         handleResize()
         window.addEventListener('resize', handleResize)
-        document.addEventListener('click', () => {
-            if (state.isSearchResultsVisible || state.searchResult.length > 0) {
-                dispatch({ type: TYPES.ISSEARCHRESULTSVISIBLE, payload: false })
-                dispatch({ type: TYPES.SEARCHRESULT, payload: '' })
-            }
-        })
-        return () => {
-            window.removeEventListener('resize', handleResize)
-            document.removeEventListener('click', () => {
-                if (state.isSearchResultsVisible || state.searchResult.length > 0) {
-                    dispatch({ type: TYPES.ISSEARCHRESULTSVISIBLE, payload: false })
-                    dispatch({ type: TYPES.SEARCHRESULT, payload: '' })
-                }
-            })
-        }
+        return () => window.removeEventListener('resize', handleResize)
     }, [])
+    useEffect(() => {
+        document.addEventListener('click', handleClick)
+        return () => document.removeEventListener('click', handleClick)
+    })
     return (
         <>
             <section>
@@ -108,13 +111,19 @@ function Navbar({ productData }) {
                             <>
                                 <div className="account-cart-container">
                                     <span><PersonIcon />{state.isIconsVisible ? 'Account' : ''}</span>
-                                    <span>
-                                        <Badge color="primary" badgeContent={12} max={99} sx={{ "& .MuiBadge-badge": { fontSize: 9, height: 15, minWidth: 15 } }}>
+                                    <span onClick={() => dispatch({ type: TYPES.ISCARTVISIBLE, payload: !state.isCartVisible })}>
+                                        <Badge color="primary" badgeContent={cartData.cartCount} max={99} sx={{ "& .MuiBadge-badge": { fontSize: 9, height: 15, minWidth: 15 } }}>
                                             <AddShoppingCartIcon />
                                         </Badge>
-
                                         {state.isIconsVisible ? 'Cart' : ''}
                                     </span>
+                                    {state.isCartVisible ? < div className="add-to-cart-result-container">
+                                        {
+                                            cartData.cartData.map(product => {
+                                                return <SearchResultItem productData={product} />
+                                            })
+                                        }
+                                    </div> : ''}
                                 </div>
                             </>
                             :
