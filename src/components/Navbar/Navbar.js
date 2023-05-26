@@ -5,7 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useEffect, useReducer } from 'react';
+import { useEffect, useReducer, useRef } from 'react';
 import SearchResultItem from '../SearchResultItem';
 import Badge from '@mui/material/Badge';
 const TYPES = {
@@ -13,7 +13,9 @@ const TYPES = {
     ISNAVLINKSVISIBLE: 'isnavlinksvisible',
     ISSEARCHRESULTSVISIBLE: 'issearchresultsvisible',
     SEARCHRESULT: 'searchresult',
-    ISCARTVISIBLE: 'iscartvisible'
+    ISCARTVISIBLE: 'iscartvisible',
+    RESETSEARCH: 'resetsearch',
+    SEARCHVALUE: 'searchvalue'
 }
 const stateTemplate = {
     isIconsVisible: false,
@@ -33,35 +35,29 @@ function Navbar({ productData, cartData }) {
             case TYPES.ISSEARCHRESULTSVISIBLE:
                 return { ...state, isSearchResultsVisible: payload }
             case TYPES.SEARCHRESULT:
-                if (payload != '' && payload != ' ') {
-                    const result = productData.map(section => {
-                        return section.sectionItems.map(innerSection => {
-                            return innerSection.sectionItems.filter(item => item.itemName.toLowerCase().includes(payload.toLowerCase()))
-                        })
-                    }).flat(1000)
-                    if (result.length > 0) {
-                        return { ...state, searchValue: payload, isSearchResultsVisible: true, searchResult: result }
-
-                    }
-                }
-                return { ...state, searchResult: payload, isSearchResultsVisible: false }
+                return { ...state, searchResult: payload }
             case TYPES.ISCARTVISIBLE:
                 return { ...state, isCartVisible: payload }
+            case TYPES.SEARCHVALUE:
+                return { ...state, searchValue: payload }
             default:
                 return state
         }
     }
     const [state, dispatch] = useReducer(handleState, stateTemplate)
+    const addToCartRef = useRef()
+    const searchBarRef = useRef()
     function handleResize() {
         dispatch({ type: TYPES.ISICONSVISIBLE, payload: !(window.innerWidth <= 1200) })
         dispatch({ type: TYPES.ISNAVLINKSVISIBLE, payload: !(window.innerWidth <= 1000) })
     }
-    function handleClick() {
-        if (state.isSearchResultsVisible == true || state.searchResult.length > 0) {
+    function handleClick(e) {
+        if (e.target != searchBarRef.current) {
             dispatch({ type: TYPES.ISSEARCHRESULTSVISIBLE, payload: false })
-            dispatch({ type: TYPES.SEARCHRESULT, payload: '' })
+            dispatch({ type: TYPES.SEARCHVALUE, payload: '' })
+            dispatch({ type: TYPES.SEARCHRESULT, payload: [] })
         }
-        if (state.isCartVisible == true) {
+        if (e.target != addToCartRef.current) {
             dispatch({ type: TYPES.ISCARTVISIBLE, payload: false })
         }
     }
@@ -73,7 +69,28 @@ function Navbar({ productData, cartData }) {
     useEffect(() => {
         document.addEventListener('click', handleClick)
         return () => document.removeEventListener('click', handleClick)
-    })
+    }, [])
+    function handleSearchResult(data) {
+        if (data == '' || data == ' ') {
+            dispatch({ type: TYPES.ISSEARCHRESULTSVISIBLE, payload: false })
+            dispatch({ type: TYPES.SEARCHRESULT, payload: [] })
+            dispatch({ type: TYPES.SEARCHVALUE, payload: '' })
+            return;
+        }
+        const result = productData.map(section => {
+            return section.sectionItems.map(innerSection => {
+                return innerSection.sectionItems.filter(item => item.itemName.toLowerCase().includes(data.toLowerCase()))
+            })
+        }).flat(1000)
+        if (result.length > 0) {
+            dispatch({ type: TYPES.SEARCHRESULT, payload: result })
+            dispatch({ type: TYPES.ISSEARCHRESULTSVISIBLE, payload: true })
+        }
+        else {
+            dispatch({ type: TYPES.ISSEARCHRESULTSVISIBLE, payload: false })
+        }
+        dispatch({ type: TYPES.SEARCHVALUE, payload: data })
+    }
     return (
         <>
             <section>
@@ -88,8 +105,10 @@ function Navbar({ productData, cartData }) {
                                     <li className="link">What's New</li>
                                     <li className="link">Delivery</li>
                                 </ul>
-                                <div className="search-bar-container">
-                                    <input type="text" className='search-bar' placeholder='Search Product' onChange={(e) => dispatch({ type: TYPES.SEARCHRESULT, payload: e.target.value })} />
+                                <div className="search-bar-container" ref={searchBarRef}>
+                                    <input type="text" className='search-bar' placeholder='Search Product' onChange={(e) => handleSearchResult(e.target.value)}
+                                        value={state.searchValue}
+                                    />
                                     <SearchIcon />
                                 </div>
                                 {
@@ -111,12 +130,12 @@ function Navbar({ productData, cartData }) {
                             <>
                                 <div className="account-cart-container">
                                     <span><PersonIcon />{state.isIconsVisible ? 'Account' : ''}</span>
-                                    <span onClick={() => dispatch({ type: TYPES.ISCARTVISIBLE, payload: !state.isCartVisible })}>
-                                        <Badge color="primary" badgeContent={cartData.cartCount} max={99} sx={{ "& .MuiBadge-badge": { fontSize: 9, height: 15, minWidth: 15 } }}>
+                                    <div onClick={() => dispatch({ type: TYPES.ISCARTVISIBLE, payload: !state.isCartVisible })} ref={addToCartRef}>
+                                        <Badge color="primary" badgeContent={cartData.cartCount} max={99} sx={{ "& .MuiBadge-badge": { fontSize: 9, height: 15, minWidth: 15 } }} onClick={() => dispatch({ type: TYPES.ISCARTVISIBLE, payload: !state.isCartVisible })}>
                                             <AddShoppingCartIcon />
                                         </Badge>
                                         {state.isIconsVisible ? 'Cart' : ''}
-                                    </span>
+                                    </div>
                                     {state.isCartVisible ? < div className="add-to-cart-result-container">
                                         {
                                             cartData.cartData.map(product => {
