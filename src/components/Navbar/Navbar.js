@@ -15,7 +15,8 @@ const TYPES = {
     SEARCHRESULT: 'searchresult',
     ISCARTVISIBLE: 'iscartvisible',
     RESETSEARCH: 'resetsearch',
-    SEARCHVALUE: 'searchvalue'
+    SEARCHVALUE: 'searchvalue',
+    HAMMENU: 'hammenu'
 }
 const stateTemplate = {
     isIconsVisible: false,
@@ -23,7 +24,8 @@ const stateTemplate = {
     isSearchResultsVisible: false,
     searchValue: '',
     searchResult: [],
-    isCartVisible: false
+    isCartVisible: false,
+    isHamMenuVisible: false
 }
 function Navbar({ productData, cartData }) {
     function handleState(state, { type, payload }) {
@@ -40,6 +42,8 @@ function Navbar({ productData, cartData }) {
                 return { ...state, isCartVisible: payload }
             case TYPES.SEARCHVALUE:
                 return { ...state, searchValue: payload }
+            case TYPES.HAMMENU:
+                return { ...state, isHamMenuVisible: payload }
             default:
                 return state
         }
@@ -47,6 +51,7 @@ function Navbar({ productData, cartData }) {
     const [state, dispatch] = useReducer(handleState, stateTemplate)
     const addToCartRef = useRef()
     const searchBarRef = useRef()
+    const hamMenuRef = useRef()
     function handleResize() {
         dispatch({ type: TYPES.ISICONSVISIBLE, payload: !(window.innerWidth <= 1200) })
         dispatch({ type: TYPES.ISNAVLINKSVISIBLE, payload: !(window.innerWidth <= 1000) })
@@ -59,6 +64,9 @@ function Navbar({ productData, cartData }) {
         }
         if (e.target != addToCartRef.current) {
             dispatch({ type: TYPES.ISCARTVISIBLE, payload: false })
+        }
+        if (e.target != hamMenuRef.current && e.target.parentElement != hamMenuRef.current) {
+            dispatch({ type: TYPES.HAMMENU, payload: false })
         }
     }
     useEffect(() => {
@@ -93,63 +101,92 @@ function Navbar({ productData, cartData }) {
     }
     return (
         <>
-            <section>
-                <div className="nav-bar">
-                    <img src={logo} className='logo' />
-                    {
-                        state.isNavLinksVisible ?
-                            <div className="navigation">
-                                <ul className="links-container">
-                                    <li className="link">Category</li>
-                                    <li className="link">Deals</li>
-                                    <li className="link">What's New</li>
-                                    <li className="link">Delivery</li>
-                                </ul>
-                                <div className="search-bar-container" ref={searchBarRef}>
-                                    <input type="text" className='search-bar' placeholder='Search Product' onChange={(e) => handleSearchResult(e.target.value)}
-                                        value={state.searchValue}
-                                    />
-                                    <SearchIcon />
-                                </div>
-                                {
-                                    state.isSearchResultsVisible ?
-                                        <div className="search-result-container">
-                                            {
-                                                state.searchResult.map(product => {
-                                                    return <SearchResultItem productData={product} />
-                                                })
-                                            }
-                                        </div>
-                                        : ''
-                                }
+            <div className="nav-bar">
+                <img src={logo} className='logo' />
+                {
+                    state.isNavLinksVisible ?
+                        <div className="navigation">
+                            <ul className="links-container">
+                                <li className="link">Category</li>
+                                <li className="link">Deals</li>
+                                <li className="link">What's New</li>
+                                <li className="link">Delivery</li>
+                            </ul>
+                            <div className="search-bar-container" ref={searchBarRef}>
+                                <input type="text" className='search-bar' placeholder='Search Product' onChange={(e) => handleSearchResult(e.target.value)}
+                                    value={state.searchValue}
+                                />
+                                <SearchIcon />
                             </div>
-                            : ''
-                    }
-                    {
-                        state.isNavLinksVisible ?
-                            <>
-                                <div className="account-cart-container">
-                                    <span><PersonIcon />{state.isIconsVisible ? 'Account' : ''}</span>
-                                    <div onClick={() => dispatch({ type: TYPES.ISCARTVISIBLE, payload: !state.isCartVisible })} ref={addToCartRef}>
-                                        <Badge color="primary" badgeContent={cartData.cartCount} max={99} sx={{ "& .MuiBadge-badge": { fontSize: 9, height: 15, minWidth: 15 } }} onClick={() => dispatch({ type: TYPES.ISCARTVISIBLE, payload: !state.isCartVisible })}>
-                                            <AddShoppingCartIcon />
-                                        </Badge>
-                                        {state.isIconsVisible ? 'Cart' : ''}
-                                    </div>
-                                    {state.isCartVisible ? < div className="add-to-cart-result-container">
+                            {
+                                state.isSearchResultsVisible ?
+                                    <div className="search-result-container">
                                         {
-                                            cartData.cartData.map(product => {
+                                            state.searchResult.map(product => {
                                                 return <SearchResultItem productData={product} />
                                             })
                                         }
-                                    </div> : ''}
+                                    </div>
+                                    : ''
+                            }
+                        </div>
+                        : ''
+                }
+                {
+                    state.isNavLinksVisible ?
+                        <>
+                            <div className="account-cart-container">
+                                <span><PersonIcon />{state.isIconsVisible ? 'Account' : ''}</span>
+                                <span onClick={() => dispatch({ type: TYPES.ISCARTVISIBLE, payload: !state.isCartVisible })} ref={addToCartRef}>
+                                    <Badge color="primary" badgeContent={cartData.cartCount} max={99} sx={{ "& .MuiBadge-badge": { fontSize: 9, height: 15, minWidth: 15 } }} onClick={() => dispatch({ type: TYPES.ISCARTVISIBLE, payload: !state.isCartVisible })} style={{ pointerEvents: 'none' }}>
+                                        <AddShoppingCartIcon />
+                                    </Badge>
+                                    {state.isIconsVisible ? 'Cart' : ''}
+                                </span>
+                                {state.isCartVisible ? <div className="add-to-cart-result-container">
+                                    {
+                                        cartData.cartData.map(product => {
+                                            return <SearchResultItem productData={product} />
+                                        })
+                                    }
+                                </div> : ''}
+                            </div>
+                        </>
+                        :
+                        <MenuIcon onClick={() => dispatch({ type: TYPES.HAMMENU, payload: !state.isHamMenuVisible })} ref={hamMenuRef} />
+                }
+
+            </div>
+            {
+                state.isHamMenuVisible && !state.isNavLinksVisible ?
+                    <div className="ham-menu-container">
+                        {!state.isSearchResultsVisible ?
+                            <><li className="link">Category</li>
+                                <li className="link">Deals</li>
+                                <li className="link">What's New</li>
+                                <li className="link">Delivery</li>
+                            </> : ''
+                        }
+                        <div className="search-bar-container" ref={searchBarRef}>
+                            <input type="text" className='search-bar' placeholder='Search Product' onChange={(e) => handleSearchResult(e.target.value)}
+                                value={state.searchValue}
+                            />
+                            <SearchIcon />
+                        </div>
+                        {
+                            state.isSearchResultsVisible ?
+                                <div className="search-result-mobile-container">
+                                    {
+                                        state.searchResult.map(product => {
+                                            return <SearchResultItem productData={product} />
+                                        })
+                                    }
                                 </div>
-                            </>
-                            :
-                            <MenuIcon />
-                    }
-                </div>
-            </section >
+                                : ''
+                        }
+                    </div>
+                    : ''
+            }
         </>
     )
 }
