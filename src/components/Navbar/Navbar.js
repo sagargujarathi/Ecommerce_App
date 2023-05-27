@@ -125,8 +125,9 @@ function Navbar({ productData, cartData }) {
                                         {
                                             state.searchResult.map(product => {
                                                 return <SearchResultItem productData={product} />
-                                            })
+                                            }).slice(0, 6)
                                         }
+                                        {state.searchResult.length > 6 && <button className="show-more-button">Show More...</button>}
                                     </div>
                                     : ''
                             }
@@ -150,6 +151,8 @@ function Navbar({ productData, cartData }) {
                                             return <SearchResultItem productData={product} />
                                         })
                                     }
+                                    {cartData.cartData.length > 6 && <button className="show-more-button">Show More...</button>}
+
                                 </div> : ''}
                             </div>
                         </>
@@ -174,6 +177,10 @@ function Navbar({ productData, cartData }) {
                             />
                             <SearchIcon />
                         </div>
+                        <div className="ham-menu-account-cart-container">
+                            <button className="show-more-button"><AddShoppingCartIcon /> Cart</button>
+                            <button className="show-more-button"><PersonIcon /> Account</button>
+                        </div>
                         {
                             state.isSearchResultsVisible ?
                                 <div className="search-result-mobile-container">
@@ -182,6 +189,7 @@ function Navbar({ productData, cartData }) {
                                             return <SearchResultItem productData={product} />
                                         })
                                     }
+                                    {state.searchResult.length > 6 && <button className="show-more-button">Show More...</button>}
                                 </div>
                                 : ''
                         }

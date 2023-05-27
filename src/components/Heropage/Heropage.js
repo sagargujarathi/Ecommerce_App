@@ -30,7 +30,7 @@ function Heropage() {
                             <p className='h1'>Shopping And</p>
                             <p className='h1'>Department Store.</p>
                         </span>
-                        <p className="quote">Shopping is a bit of a relaxing hobby for me, which is <br /> sometimes troubling for the bank balance.</p>
+                        <p className="quote">Shopping is a bit of a relaxing hobby for me, which is{temp && <br />}sometimes troubling for the bank balance.</p>
                         <button className='learn-more-button'>Learn More</button>
                     </div>
                     {
