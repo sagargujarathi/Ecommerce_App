@@ -65,7 +65,8 @@ function Navbar({ productData, cartData }) {
         if (e.target != addToCartRef.current) {
             dispatch({ type: TYPES.ISCARTVISIBLE, payload: false })
         }
-        if (e.target != hamMenuRef.current && e.target.parentElement != hamMenuRef.current) {
+        if (e.target != hamMenuRef.current && e.target.parentElement != hamMenuRef.current && e.target.parentElement != searchBarRef.current) {
+            console.log(e.target, searchBarRef.current)
             dispatch({ type: TYPES.HAMMENU, payload: false })
         }
     }
