@@ -60,3 +60,34 @@ function App() {
 }
 
 export default App
+
+
+                    // {
+                    //     "itemName": "",
+                    //     "itemInfo": "",
+                    //     "itemDescription": "",
+                    //     "itemPrice": "",
+                    //     "itemRating": [],
+                    //     "itemReviewCount": 0,
+                    //     "itemReviews": [
+                    //         {
+                    //             "reviewerName": "",
+                    //             "review": "",
+                    //             "reviewerRating": ""
+                    //         }
+                    //     ],
+                    //     "itemMainImage": "",
+                    //     "itemColor": [
+                    //         {
+                    //             "color": "",
+                    //             "hex": "",
+                    //             "itemLeft": 0,
+                    //             "images": [
+                    //                 "",
+                    //                 "",
+                    //                 "",
+                    //                 ""
+                    //             ]
+                    //         }
+                    //     ]
+                    // }

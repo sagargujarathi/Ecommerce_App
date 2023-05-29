@@ -9,9 +9,9 @@ function Carousel({ productData }) {
     function handleResize() {
         const element = scrollContainerRef.current
         const width = element.offsetWidth
-        for (let i = 30; i >= 1; i--) {
+        for (let i = 1; i <= 30; i++) {
             let size = (width - ((i - 1) * (16 * 1.5))) / i
-            if (size < 400 && size > 250) {
+            if (size < 410 && size > 250) {
                 scrollContainerRef.current.style.gridTemplateColumns = `${size}px`
                 scrollContainerRef.current.style.gridAutoColumns = `${size}px`
                 return;
