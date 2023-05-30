@@ -8,6 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useEffect, useReducer, useRef } from 'react';
 import SearchResultItem from '../SearchResultItem';
 import Badge from '@mui/material/Badge';
+import { Link } from 'react-router-dom';
 const TYPES = {
     ISICONSVISIBLE: 'isiconsvisible',
     ISNAVLINKSVISIBLE: 'isnavlinksvisible',
@@ -127,7 +128,11 @@ function Navbar({ productData, cartData }) {
                                                 return <SearchResultItem productData={product} />
                                             }).slice(0, 6)
                                         }
-                                        {state.searchResult.length > 6 && <button className="show-more-button">Show More...</button>}
+                                        {state.searchResult.length > 6 &&
+                                            <Link to='/searchresults' style={{ display: 'contents' }}>
+                                                <button className="show-more-button">Show More...</button>
+                                            </Link>
+                                        }
                                     </div>
                                     : ''
                             }
@@ -151,7 +156,11 @@ function Navbar({ productData, cartData }) {
                                             return <SearchResultItem productData={product} />
                                         })
                                     }
-                                    {cartData.cartData.length > 6 && <button className="show-more-button">Show More...</button>}
+                                    {cartData.cartData.length > 6 &&
+                                        <Link to='/cart' style={{ display: 'contents' }}>
+                                            <button className="show-more-button">Show More...</button>
+                                        </Link>
+                                    }
 
                                 </div> : ''}
                             </div>
@@ -189,7 +198,11 @@ function Navbar({ productData, cartData }) {
                                             return <SearchResultItem productData={product} />
                                         })
                                     }
-                                    {state.searchResult.length > 6 && <button className="show-more-button">Show More...</button>}
+                                    {state.searchResult.length > 6 &&
+                                        <Link to='/searchresults' style={{ display: 'contents' }}>
+                                            <button className="show-more-button">Show More...</button>
+                                        </Link>
+                                    }
                                 </div>
                                 : ''
                         }
